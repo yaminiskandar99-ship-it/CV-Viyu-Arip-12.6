@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Viyu Arip Paturohman As</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-purple: #6b21a8;
+            --secondary-purple: #9333ea;
+            --light-purple: #f3e8ff;
+            --accent-purple: #d8b4fe;
+            --dark-text: #1f2937;
+            --muted-text: #4b5563;
+            --bg-color: #faf5ff;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--dark-text);
+            line-height: 1.6;
+            padding: 30px 15px;
+        }
+
+        .cv-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(107, 33, 168, 0.15);
+            display: grid;
+            grid-template-columns: 320px 1fr;
+        }
+
+        /* Sidebar / Kolom Kiri */
+        .sidebar {
+            background: linear-gradient(160deg, var(--primary-purple), var(--secondary-purple));
+            color: var(--white);
+            padding: 35px 25px;
+        }
+
+        .profile-img-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--accent-purple);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            background-color: var(--light-purple);
+        }
+
+        .sidebar h1 {
+            font-size: 1.45rem;
+            text-align: center;
+            font-weight: 700;
+            margin-bottom: 5px;
+            line-height: 1.3;
+        }
+
+        .tagline {
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--light-purple);
+            margin-bottom: 25px;
+            font-weight: 300;
+        }
+
+        .sidebar-section {
+            margin-bottom: 25px;
+        }
+
+        .sidebar-section h2 {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid var(--accent-purple);
+            padding-bottom: 5px;
+            margin-bottom: 12px;
+        }
+
+        .info-list {
+            list-style: none;
+            font-size: 0.88rem;
+        }
+
+        .info-list li {
+            margin-bottom: 10px;
+        }
+
+        .info-list strong {
+            display: block;
+            color: var(--accent-purple);
+            font-size: 0.78rem;
+            text-transform: uppercase;
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-badge {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        /* Konten Utama / Kolom Kanan */
+        .main-content {
+            padding: 40px 35px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 1.25rem;
+            color: var(--primary-purple);
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title::after {
+            content: "";
+            flex: 1;
+            height: 2px;
+            background: var(--light-purple);
+        }
+
+        .about-text {
+            font-size: 0.95rem;
+            color: var(--muted-text);
+            text-align: justify;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 20px;
+            border-left: 3px solid var(--secondary-purple);
+            margin-bottom: 18px;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -8px;
+            top: 5px;
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            background: var(--primary-purple);
+            border: 2px solid var(--white);
+        }
+
+        .timeline-year {
+            display: inline-block;
+            background: var(--light-purple);
+            color: var(--primary-purple);
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 2px 10px;
+            border-radius: 12px;
+            margin-bottom: 4px;
+        }
+
+        .timeline-title {
+            font-size: 1.02rem;
+            font-weight: 600;
+            color: var(--dark-text);
+        }
+
+        .timeline-desc {
+            font-size: 0.9rem;
+            color: var(--muted-text);
+        }
+
+        .cert-card {
+            background: var(--light-purple);
+            border-left: 4px solid var(--primary-purple);
+            padding: 15px 18px;
+            border-radius: 8px;
+        }
+
+        .cert-card h3 {
+            font-size: 1rem;
+            color: var(--primary-purple);
+            margin-bottom: 3px;
+        }
+
+        .cert-card p {
+            font-size: 0.88rem;
+            color: var(--muted-text);
+        }
+
+        /* Responsif untuk HP */
+        @media (max-width: 768px) {
+            .cv-container {
+                grid-template-columns: 1fr;
+            }
+            .main-content {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cv-container">
+        <!-- BAGIAN KIRI -->
+        <aside class="sidebar">
+            <div class="profile-img-container">
+                <!-- Ganti src dengan nama file foto kamu di GitHub, misal: src="foto-viyu.jpg" -->
+                <img src="https://ui-avatars.com/api/?name=Viyu+Arip+Paturohman&background=f3e8ff&color=6b21a8&size=250" alt="Foto Viyu Arip Paturohman As" class="profile-img">
+            </div>
+            <h1>Viyu Arip Paturohman As</h1>
+            <p class="tagline">Lulusan SMA KP Baleendah | Creative & Academic Enthusiast</p>
+
+            <div class="sidebar-section">
+                <h2>Data Pribadi</h2>
+                <ul class="info-list">
+                    <li>
+                        <strong>Tanggal Lahir</strong>
+                        25 Oktober 2009
+                    </li>
+                    <li>
+                        <strong>Nomor Telepon</strong>
+                        083153167633
+                    </li>
+                    <li>
+                        <strong>Alamat</strong>
+                        Ruko Gading Shopping Arcade, Blok B No. 8 BJ - BH, Jl. Tanjung Duren, Kec. Kebon Jeruk, Kota Jakarta Timur
+                    </li>
+                    <li>
+                        <strong>Hobi</strong>
+                        Travelling
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <h2>Sosial Media</h2>
+                <ul class="info-list">
+                    <li>
+                        <strong>Instagram</strong>
+                        @bunniestdog
+                    </li>
+                    <li>
+                        <strong>TikTok</strong>
+                        @bunniestdog
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <h2>Keahlian</h2>
+                <div class="skills-container">
+                    <span class="skill-badge">Fluent in English</span>
+                    <span class="skill-badge">Dasar Videografi</span>
+                    <span class="skill-badge">Seni Digital</span>
+                    <span class="skill-badge">Fotografi</span>
+                    <span class="skill-badge">Microsoft Word</span>
+                    <span class="skill-badge">Microsoft Excel</span>
+                    <span class="skill-badge">Microsoft PowerPoint</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- BAGIAN KANAN -->
+        <main class="main-content">
+            <section class="section">
+                <h2 class="section-title">Tentang Diri</h2>
+                <p class="about-text">
+                    Saya adalah lulusan SMA KP Baleendah tahun 2026 yang memiliki ketertarikan tinggi di bidang akademik, media kreatif, dan komunikasi bahasa Inggris. Memiliki pengalaman aktif berorganisasi di OSIS baik di bidang media maupun kepemimpinan akademik. Saya juga memiliki hobi travelling yang melatih kemampuan adaptasi serta kreativitas saya dalam bidang fotografi, videografi, dan seni digital.
+                </p>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Pendidikan</h2>
+                <div class="timeline-item">
+                    <span class="timeline-year">Lulus Tahun 2026</span>
+                    <h3 class="timeline-title">SMA KP Baleendah</h3>
+                    <p class="timeline-desc">Sekolah Menengah Atas</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-year">Lulus Tahun 2023</span>
+                    <h3 class="timeline-title">MTs Plus Darul Hufadz</h3>
+                    <p class="timeline-desc">Madrasah Tsanawiyah</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-year">Lulus Tahun 2020</span>
+                    <h3 class="timeline-title">SDN 208 Luginasari Sukagalih</h3>
+                    <p class="timeline-desc">Sekolah Dasar Negeri</p>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Pengalaman Organisasi</h2>
+                <div class="timeline-item">
+                    <span class="timeline-year">2026</span>
+                    <h3 class="timeline-title">Ketua Sekbid Prestasi Akademik - OSIS</h3>
+                    <p class="timeline-desc">Memimpin dan mengoordinasikan program kerja serta kegiatan yang berfokus pada pengembangan prestasi akademik siswa.</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-year">2025</span>
+                    <h3 class="timeline-title">Anggota Bidang Media Centre - OSIS</h3>
+                    <p class="timeline-desc">Berkontribusi dalam dokumentasi kegiatan sekolah, fotografi, videografi, dan pengelolaan konten digital organisasi.</p>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Sertifikat & Penghargaan</h2>
+                <div class="cert-card">
+                    <h3>Juara 2 English Writing POLMAN</h3>
+                    <p>Tahun 2026 — Kompetisi Menulis Bahasa Inggris tingkat pelajar di Politeknik Manufaktur (POLMAN).</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+</body>
+</html>
